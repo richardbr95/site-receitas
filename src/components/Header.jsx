@@ -8,7 +8,7 @@ export default function Header() {
           Receitas 🍲
         </Link>
         <nav className="space-x-4">
-          <Link to="/categoria/café da manhã" className="hover:text-green-600">
+          <Link to="/categoria/Café da manhã" className="hover:text-green-600">
             Café da Manhã
           </Link>
           <Link to="/categoria/Almoço" className="hover:text-green-600">
