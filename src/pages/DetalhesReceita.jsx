@@ -1,6 +1,6 @@
-import CardReceita from "../components/CardReceita";
+import { useParams } from "react-router-dom";
 import boloImg from "../assets/bolo-de-chocolate-facil.jpg";
-import CampoBusca from "../components/CampoBusca";
+import { useNavigate } from "react-router-dom";
 
 const receitas = [
   {
@@ -50,23 +50,47 @@ const receitas = [
   },
 ];
 
-export default function Home() {
+export default function Detalhes() {
+  const { titulo } = useParams();
+  const receita = receitas.find((r) => {
+    return r.titulo === titulo;
+  });
+  const navigate = useNavigate();
+
+  if (!receita) {
+    return <p className="text-red-500">Receita não encontrada.</p>;
+  }
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Receitas em Destaque</h1>
-      <CampoBusca />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {receitas.map((receita, index) => {
-          return (
-            <CardReceita
-              key={index}
-              titulo={receita.titulo}
-              imagem={receita.imagem}
-              categoria={receita.categoria}
-            />
-          );
-        })}
-      </div>
+    <div className="max-w-3xl mx-auto p-4">
+      <button
+        onClick={() => {
+          return navigate(-1);
+        }}
+        className="mb-4 text-blue-600 hover:underline"
+      >
+        ← Voltar
+      </button>
+
+      <h1 className="text-3xl font-bold mb-4">{receita.titulo}</h1>
+      <img
+        src={receita.imagem}
+        alt={receita.titulo}
+        className="w-full h-64 object-cover rounded-xl shadow"
+      />
+      <p className="text-gray-500 my-2 italic">
+        Categoria: {receita.categoria}
+      </p>
+      <p className="text-lg mb-4">{receita.descricao}</p>
+
+      <h2 className="text-xl font-semibold mb-2">Ingredientes</h2>
+      <ul className="list-disc list-inside mb-4">
+        {receita.ingredientes.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+
+      <h2 className="text-xl font-semibold mb-2">Modo de Preparo</h2>
+      <p>{receita.preparo}</p>
     </div>
   );
 }
