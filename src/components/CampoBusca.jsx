@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function CampoBusca() {
-  const [busca, setBusca] = useState();
+  const [busca, setBusca] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -18,7 +18,7 @@ export default function CampoBusca() {
         value={busca}
         onChange={(e) => setBusca(e.target.value)}
         placeholder="Buscar Receita"
-        className="border border-gray-300 rounded-1-md px-4 py-2 w-64
+        className="border border-gray-300 rounded-l-md px-4 py-2 w-64
         focus:outline-none focus:ring-2 focus:ring-green-500"
       />
       <button

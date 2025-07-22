@@ -35,7 +35,7 @@ export default function Buscar() {
       </h1>
       {resultados.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {receitas.map((receita, index) => {
+          {resultados.map((receita, index) => {
             return (
               <CardReceita
                 key={index}

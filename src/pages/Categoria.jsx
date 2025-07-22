@@ -81,25 +81,20 @@ export default function Categoria() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4 text-center my-4">
-        Categoria: {categoria}
+      <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-600 m-auto w-fit p-2 rounded-3xl text-white">
+        Categoria: {nomeOriginal || categoria}
       </h1>
-      {receitas.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {receitasFiltradas.map((receita, index) => (
-            <CardReceita
-              key={index}
-              titulo={receita.titulo}
-              imagem={receita.imagem}
-              categoria={receita.categoria}
-            />
-          ))}
-        </div>
-      ) : (
-        <p className="text-center to-gray-600 mt-10">
-          Nenhuma Receita Encontrada Para Essa Categoria
-        </p>
-      )}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {receitasFiltradas.map((receita, index) => (
+          <CardReceita
+            key={index}
+            titulo={receita.titulo}
+            imagem={receita.imagem}
+            categoria={receita.categoria}
+          />
+        ))}
+      </div>
     </div>
   );
 }
