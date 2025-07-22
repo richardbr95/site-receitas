@@ -22,7 +22,7 @@ export default function Header() {
             className="h-auto w-auto object-contain rounded-xl"
           />
         </Link>
-        <nav className="space-x-4">
+        <nav className="space-x-4 flex">
           {categorias.map((cat) => (
             <Link
               key={cat}
