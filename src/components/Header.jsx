@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header className="bg-white shadow p-8">
       <div className="container relative mx-auto flex items-center justify-end ">
-        <Link to="/home" className="text-4xl font-bold absolute left-0">
+        <Link to="/" className="text-4xl font-bold absolute left-0">
           <img
             src={LogoImg}
             alt="Logo ReceitasRE"
