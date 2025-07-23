@@ -15,7 +15,7 @@ export default function App() {
         <Header />
         <main className="flex-grow container mx-auto px-4 py-6">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/categoria/:categoria" element={<Categoria />} />
             <Route path="/receita/:titulo" element={<Detalhes />} />
             <Route path="*" element={<NotFound />} />
