@@ -10,7 +10,7 @@ export default function Header() {
       .replace(/\s+/g, "-");
   }
 
-  const categorias = ["Café da Manhã", "Almoço", "Sobremesa"];
+  const categorias = ["Café da Manhã", "Almoço", "Sobremesa", "Bebida"];
 
   return (
     <header className="bg-white shadow p-8">

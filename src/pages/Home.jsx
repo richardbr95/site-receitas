@@ -109,7 +109,7 @@ export default function Home() {
           <img
             src=" https://cdn-productdbimages.barry-callebaut.com/sites/default/files/styles/mdp_web_gm_chocac-detail/public/externals/d73ed7c82007f2c7d6b1615a80920207.jpg?itok=p8W4PzRn"
             alt=""
-            className="w-3xl float-left mr-4 rounded-4xl"
+            className="w-3xl float-left mr-4 rounded-4xl shadow-2xl hover:scale-101 transition"
           />
           <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-500 rounded-3xl w-fit m-auto p-2  mt-10">
             Receita do Mestre!
@@ -140,7 +140,7 @@ export default function Home() {
           Receitas em Destaque
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 shadow">
           {receitasDestaque.map((receita, index) => {
             return (
               <CardReceita
@@ -178,7 +178,7 @@ export default function Home() {
           <img
             src="https://cdn.abrahao.com.br/base/606/0d0/202/chefe-cozinha-profissional.jpg"
             alt=""
-            className="w-3xl float-right mt-12 ml-2 rounded-2xl shadow-2xl "
+            className="w-3xl float-right mt-12 ml-2 rounded-2xl shadow-2xl hover:scale-101 transition"
           />
           <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-500 rounded-3xl w-fit m-auto p-2  mt-10">
             Nome: Isabella Conti Montalvo
