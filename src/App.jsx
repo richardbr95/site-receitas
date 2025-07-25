@@ -7,6 +7,8 @@ import Detalhes from "./pages/DetalhesReceita";
 
 import Buscar from "./pages/Buscar";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import MinhasReceitas from "./pages/MinhasReceitas";
 
 export default function App() {
   return (
@@ -18,8 +20,10 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/categoria/:categoria" element={<Categoria />} />
             <Route path="/receita/:titulo" element={<Detalhes />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/buscar/:termo" element={<Buscar />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/minhas-receitas" element={<MinhasReceitas />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

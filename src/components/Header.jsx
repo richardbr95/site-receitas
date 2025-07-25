@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LogoImg from "../assets/logoRE.png";
+import { FaUserCircle } from "react-icons/fa";
+import { useAuth } from "../contexts/AuthContext";
+import { MdLogout } from "react-icons/md";
+import { PiNewspaper } from "react-icons/pi";
 
 export default function Header() {
+  const { usuario, logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logout();
+    navigate("/");
+  }
+
   function slugify(texto) {
     return texto
       .normalize("NFD")
@@ -32,6 +44,27 @@ export default function Header() {
               {cat}
             </Link>
           ))}
+
+          {usuario ? (
+            <>
+              <Link
+                to="/minhas-receitas"
+                className="text-xl hover:text-green-600 relative top-1"
+              >
+                <PiNewspaper />
+              </Link>
+              <button
+                onClick={handleLogout}
+                className=" text-red-600 hover:text-red-800 text-sm ml-2"
+              >
+                <MdLogout />
+              </button>
+            </>
+          ) : (
+            <Link to="/login">
+              <FaUserCircle className="text-2xl hover:text-orange-500 transition absolute top-0.5" />
+            </Link>
+          )}
         </nav>
         {/* Fututo botão modo escuro*/}
       </div>
