@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import LogoImg from "../assets/logoRE.png";
 import { FaUserCircle } from "react-icons/fa";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import { MdLogout } from "react-icons/md";
 import { PiNewspaper } from "react-icons/pi";
 
