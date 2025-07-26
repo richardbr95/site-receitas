@@ -130,7 +130,7 @@ export default function Categoria() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-600 m-auto w-fit p-2 rounded-3xl text-white">
+      <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-600 m-auto w-fit p-2 px-3 rounded-3xl text-white">
         Categoria: {nomeOriginal || categoria}
       </h1>
 

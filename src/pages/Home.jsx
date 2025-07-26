@@ -111,7 +111,7 @@ export default function Home() {
             alt=""
             className="w-3xl md:float-left float-none sm:float-none mr-10 mb-12 rounded-4xl shadow-2xl hover:scale-101 transition"
           />
-          <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-500 rounded-3xl w-fit m-auto p-2  mt-10">
+          <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  mt-10">
             Receita do Mestre!
           </h1>
 
@@ -134,11 +134,11 @@ export default function Home() {
       </section>
 
       <section className="mt-20">
-        <h1 className="text-3xl  text-white font-bold mb-10   text-center m-auto bg-amber-500 w-fit rounded-3xl p-3">
+        <h1 className="text-3xl text-white font-bold my-10 text-center m-auto bg-amber-500 w-fit rounded-3xl py-3 px-4">
           Receitas em Destaque
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 shadow">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
           {receitasDestaque.map((receita, index) => {
             return (
               <CardReceita
@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       <section className="mt-20">
-        <h1 className="text-3xl  text-white font-bold my-10 text-center m-auto bg-amber-950 w-fit rounded-3xl p-3">
+        <h1 className="text-3xl  text-white font-bold my-10 text-center m-auto bg-amber-950 w-fit rounded-3xl py-3 px-4">
           Sucos 5 estrelas
         </h1>
 
@@ -178,7 +178,7 @@ export default function Home() {
             alt=""
             className="w-3xl float-right mt-12 ml-12  mb-12 rounded-2xl shadow-2xl hover:scale-101 transition"
           />
-          <h1 className="flex justify-center text-3xl  text-white font-bold bg-amber-500 rounded-3xl w-fit m-auto p-2  mt-10">
+          <h1 className="flex justify-center text-3xl  text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  mt-10">
             Nome: Isabella Conti Montalvo
           </h1>
 

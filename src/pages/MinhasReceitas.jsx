@@ -11,9 +11,13 @@ export default function MinhasReceitas() {
     }
   }, [usuario, navigate]);
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Minhas Receitas</h1>
-      <p>Olá, {usuario}! Aqui você pode adicionar suas receitas futuramente.</p>
+    <div className="">
+      <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-800 m-auto w-fit p-3 px-4 rounded-3xl text-white">
+        Minhas Receitas
+      </h1>
+      <p className="text-xl text-justify flex justify-center items-center">
+        Olá, {usuario}! Aqui você pode adicionar suas receitas futuramente.
+      </p>
       {/* Em breve: listagem e criação de receitas do usuário */}
     </div>
   );
