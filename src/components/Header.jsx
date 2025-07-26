@@ -44,7 +44,7 @@ export default function Header() {
         </button>
         <nav
           className={` ${menuAberto ? "flex" : "hidden"}  
-        w-full md:w-auto mt-4 md:mt-0 flex-col md:flex md:flex-row gap-4 items-center mb-4 md:mb-0 sm:mb-4
+        w-full md:w-auto mt-4 md:mt-0 flex-col md:flex md:flex-row gap-4 items-center mb-4 md:mb-0 sm:mb-4 
         `}
         >
           {categorias.map((cat) => (
