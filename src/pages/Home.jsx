@@ -104,12 +104,12 @@ const receitasSucos = [
 export default function Home() {
   return (
     <div>
-      <section className="flex flex-col relative mb-10 ">
+      <section className="flex flex-col relative mb-10 mt-12">
         <div>
           <img
             src=" https://cdn-productdbimages.barry-callebaut.com/sites/default/files/styles/mdp_web_gm_chocac-detail/public/externals/d73ed7c82007f2c7d6b1615a80920207.jpg?itok=p8W4PzRn"
             alt=""
-            className="w-3xl float-left mr-4 mb-6 rounded-4xl shadow-2xl hover:scale-101 transition"
+            className="w-3xl md:float-left float-none sm:float-none mr-10 mb-12 rounded-4xl shadow-2xl hover:scale-101 transition"
           />
           <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-500 rounded-3xl w-fit m-auto p-2  mt-10">
             Receita do Mestre!
@@ -118,7 +118,7 @@ export default function Home() {
           <h3 className="mt-5 text-center text-2xl font-semibold">
             🎂 Conheça o Mestre dos Bolos: Lorenzo Bianchi
           </h3>
-          <p className=" text-xl text-wrap mt-2.5">
+          <p className=" text-xl text-justify mt-2.5">
             Com mais de 15 anos de experiência na arte da confeitaria, Lorenzo
             Bianchi é um verdadeiro mestre em transformar ingredientes em
             emoções. Inspirado pelas tradições italianas e pela paixão por
@@ -133,10 +133,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="bg-amber-900">aaaaaaaaa</section> */}
-
-      <section>
-        <h1 className="text-3xl  text-white font-bold mb-10 text-center m-auto bg-amber-500 w-fit rounded-3xl p-3">
+      <section className="mt-20">
+        <h1 className="text-3xl  text-white font-bold mb-10   text-center m-auto bg-amber-500 w-fit rounded-3xl p-3">
           Receitas em Destaque
         </h1>
 
@@ -154,7 +152,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="mt-20">
         <h1 className="text-3xl  text-white font-bold my-10 text-center m-auto bg-amber-950 w-fit rounded-3xl p-3">
           Sucos 5 estrelas
         </h1>
@@ -173,12 +171,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col relative my-10 ">
+      <section className="flex flex-col relative mt-12 ">
         <div className="p-5 rounded-2xl">
           <img
             src="https://cdn.abrahao.com.br/base/606/0d0/202/chefe-cozinha-profissional.jpg"
             alt=""
-            className="w-3xl float-right mt-12 ml-2  mb-6 rounded-2xl shadow-2xl hover:scale-101 transition"
+            className="w-3xl float-right mt-12 ml-12  mb-12 rounded-2xl shadow-2xl hover:scale-101 transition"
           />
           <h1 className="flex justify-center text-3xl  text-white font-bold bg-amber-500 rounded-3xl w-fit m-auto p-2  mt-10">
             Nome: Isabella Conti Montalvo
@@ -187,7 +185,7 @@ export default function Home() {
           <h3 className="mt-5 text-center text-2xl font-semibold">
             Receita da Mestra!
           </h3>
-          <p className=" text-xl text-wrap mt-2.5">
+          <p className=" text-xl text-justify mt-2.5 ">
             Isabella Conti Montalvo é uma confeiteira de destaque, com mais de
             12 anos de experiência em alta confeitaria. Especializada em bolos
             artísticos e sobremesas finas, Isabella combina técnicas clássicas —
