@@ -1,4 +1,5 @@
 import CardReceita from "../components/CardReceita";
+import { useAuth } from "../hooks/useAuth";
 
 const receitasDestaque = [
   {
@@ -102,6 +103,8 @@ const receitasSucos = [
 ];
 
 export default function Home() {
+  const { usuario } = useAuth();
+
   return (
     <div>
       <section className="flex flex-col relative mb-10 mt-12">
@@ -111,7 +114,7 @@ export default function Home() {
             alt=""
             className="w-3xl md:float-left float-none sm:float-none mr-10 mb-12 rounded-4xl shadow-2xl hover:scale-101 transition"
           />
-          <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  mt-10">
+          <h1 className="flex justify-center text-3xl text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  mt-10 select-none">
             Receita do Mestre!
           </h1>
 
@@ -134,7 +137,7 @@ export default function Home() {
       </section>
 
       <section className="mt-20">
-        <h1 className="text-3xl text-white font-bold my-10 text-center m-auto bg-amber-500 w-fit rounded-3xl py-3 px-4">
+        <h1 className="text-3xl text-white font-bold my-10 text-center m-auto bg-amber-500 w-fit rounded-3xl py-3 px-4 select-none">
           Receitas em Destaque
         </h1>
 
@@ -153,7 +156,7 @@ export default function Home() {
       </section>
 
       <section className="mt-20">
-        <h1 className="text-3xl  text-white font-bold my-10 text-center m-auto bg-amber-950 w-fit rounded-3xl py-3 px-4">
+        <h1 className="text-3xl  text-white font-bold my-10 text-center m-auto bg-amber-950 w-fit rounded-3xl py-3 px-4 select-none">
           Sucos 5 estrelas
         </h1>
 
@@ -178,14 +181,14 @@ export default function Home() {
             alt=""
             className="w-3xl float-right mt-12 ml-12  mb-12 rounded-2xl shadow-2xl hover:scale-101 transition"
           />
-          <h1 className="flex justify-center text-3xl  text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  mt-10">
+          <h1 className="flex justify-center text-3xl  text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  mt-10 select-none">
             Nome: Isabella Conti Montalvo
           </h1>
 
           <h3 className="mt-5 text-center text-2xl font-semibold">
             Receita da Mestra!
           </h3>
-          <p className=" text-xl text-justify mt-2.5 ">
+          <p className="text-xl text-justify mt-2.5">
             Isabella Conti Montalvo é uma confeiteira de destaque, com mais de
             12 anos de experiência em alta confeitaria. Especializada em bolos
             artísticos e sobremesas finas, Isabella combina técnicas clássicas —
@@ -204,6 +207,36 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {!usuario && (
+        <section className="mt-20">
+          <h1 className="flex justify-center text-3xl  text-white font-bold bg-amber-800 rounded-3xl w-fit m-auto py-3 px-4  my-10 select-none">
+            Crie Receitas Personalizadas!!
+          </h1>
+          <div className="flex flex-col  border-b-cyan-300 rounded-2xl mx-auto w-fit shadow-xl">
+            <div className="max-w-3xl p-6 mx-auto text-center">
+              <h3 className="my-5 text-center text-2xl font-semibold">
+                Recursos Exclusivos
+              </h3>
+              <p className="text-xl text-justify text-wrap">
+                Já pensou em ter um espaço só seu para guardar e organizar suas
+                receitas favoritas? Na{" "}
+                <span className="font-semibold text-orange-600">
+                  ReceitasRe
+                </span>
+                , você pode! Acesse a aba <strong>Minhas Receitas</strong> e
+                comece agora mesmo.
+              </p>
+              <a
+                href="/minhas-receitas"
+                className="inline-block bg-orange-500 text-white font-medium px-6 py-2 text-xl rounded-full hover:bg-orange-600 transition my-5"
+              >
+                Minhas Receitas
+              </a>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

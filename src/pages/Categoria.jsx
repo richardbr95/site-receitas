@@ -120,7 +120,9 @@ export default function Categoria() {
   if (receitasFiltradas.length === 0) {
     return (
       <div className="text-center mt-8">
-        <h1 className="text-2xl font-bold mb-4">Categoria: {categoria}</h1>
+        <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-600 m-auto w-fit p-2 px-3 rounded-3xl text-white select-none">
+          Categoria: {categoria}
+        </h1>
         <p className="text-gray-600">
           Nenhuma receita encontrada para esta categoria
         </p>
@@ -130,7 +132,7 @@ export default function Categoria() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-600 m-auto w-fit p-2 px-3 rounded-3xl text-white">
+      <h1 className="text-2xl font-bold mb-10 text-center my-4 bg-amber-600 m-auto w-fit p-2 px-3 rounded-3xl text-white select-none">
         Categoria: {nomeOriginal || categoria}
       </h1>
 
