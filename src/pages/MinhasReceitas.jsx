@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 export default function MinhasReceitas() {
   const navigate = useNavigate();
   const usuario = localStorage.getItem("usuarioLogado");
@@ -11,6 +11,7 @@ export default function MinhasReceitas() {
   const [receitas, setReceitas] = useState([]);
   const [modoEdicao, setModoEdicao] = useState(false);
   const [idEditando, setIdEditando] = useState(null);
+  const [imagem, setImagem] = useState("");
 
   useEffect(() => {
     if (!usuario) {
@@ -31,7 +32,9 @@ export default function MinhasReceitas() {
 
     if (modoEdicao) {
       const atualizadas = receitasUsuario.map((rec) =>
-        rec.id === idEditando ? { ...rec, titulo, ingredientes, preparo } : rec
+        rec.id === idEditando
+          ? { ...rec, titulo, imagem, ingredientes, preparo }
+          : rec
       );
 
       dados[usuario] = atualizadas;
@@ -41,6 +44,7 @@ export default function MinhasReceitas() {
       setTitulo("");
       setIngredientes("");
       setPreparo("");
+      setImagem("");
       setMostrarFormulario(false);
       setModoEdicao(false);
       setIdEditando(null);
@@ -48,6 +52,7 @@ export default function MinhasReceitas() {
       const nova = {
         id: crypto.randomUUID(),
         titulo,
+        imagem,
         ingredientes,
         preparo,
       };
@@ -65,6 +70,7 @@ export default function MinhasReceitas() {
       setTitulo("");
       setIngredientes("");
       setPreparo("");
+      setImagem("");
       setMostrarFormulario(false);
       setModoEdicao(false);
       setIdEditando(null);
@@ -85,6 +91,7 @@ export default function MinhasReceitas() {
 
   function iniciarEdicao(receita) {
     setTitulo(receita.titulo);
+    setImagem(receita.imagem || "");
     setIngredientes(receita.ingredientes);
     setPreparo(receita.preparo);
     setModoEdicao(true);
@@ -120,6 +127,13 @@ export default function MinhasReceitas() {
           onSubmit={salvarOuEditarReceita}
           className="bg-white border-cyan-950 rounded-lg shadow-md p-4 my-8 space-y-4 w-[38rem] mx-auto flex flex-col px-8"
         >
+          {modoEdicao && imagem && (
+            <img
+              src={imagem}
+              alt={titulo}
+              className="w-full h-64 object-cover rounded-4xl mb-4"
+            />
+          )}
           <input
             className="border-cyan-950 shadow-md rounded-xl px-2"
             type="text"
@@ -130,6 +144,16 @@ export default function MinhasReceitas() {
             }}
             required
           />
+          <input
+            className="border-cyan-950 shadow-md rounded-xl px-2"
+            type="text"
+            placeholder="Url da imagem"
+            value={imagem}
+            onChange={(e) => {
+              setImagem(e.target.value);
+            }}
+          />
+
           <textarea
             placeholder="Ingredientes"
             value={ingredientes}
@@ -164,6 +188,13 @@ export default function MinhasReceitas() {
               key={rec.id}
               className="bg-white p-4 border-b-cyan-950 rounded shadow-md relative my-5"
             >
+              {rec.imagem && (
+                <img
+                  src={rec.imagem}
+                  alt={rec.titulo}
+                  className="max-w-20 h-10 object-cover rounded-md shadow-md mb-4 absolute right-2 bottom-0"
+                />
+              )}
               <h2 className="font-bold text-lg text-orange-700">
                 {rec.titulo}
               </h2>
@@ -173,6 +204,12 @@ export default function MinhasReceitas() {
               <p className="mt-1">
                 <strong>Modo de Preparo:</strong> {rec.preparo}
               </p>
+              <Link
+                to={`/receita/${rec.id}`}
+                className="mt-auto text-sm text-blue-600 hover:underline"
+              >
+                Ver receita →
+              </Link>
               <div className="flex gap-2 absolute top-2 right-2">
                 <button
                   onClick={() => iniciarEdicao(rec)}

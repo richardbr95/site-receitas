@@ -1,106 +1,7 @@
 import CardReceita from "../components/CardReceita";
 import { useAuth } from "../hooks/useAuth";
-
-const receitasDestaque = [
-  {
-    titulo: "Panqueca Americana",
-    imagem:
-      "https://moinhoglobo.com.br/wp-content/uploads/2015/10/panqueca-americana-1-640x372.jpg",
-    categoria: "Café da Manhã",
-    descricao: "Panquecas leves e fofinhas para um café delicioso.",
-    ingredientes: [
-      "1 xícara de farinha de trigo",
-      "1 ovo",
-      "1 xícara de leite",
-      "1 colher (sopa) de açúcar",
-      "1 colher (chá) de fermento em pó",
-    ],
-    preparo: "Misture todos os ingredientes até obter uma massa homogênea...",
-  },
-
-  {
-    titulo: "Macarrão ao Alho e Óleo",
-    imagem:
-      "https://www.receiteria.com.br/wp-content/uploads/macarrao-alho-e-oleo-capa.png",
-    categoria: "Almoço",
-    descricao: "Panquecas leves e fofinhas para um café delicioso.",
-    ingredientes: [
-      "1 xícara de farinha de trigo",
-      "1 ovo",
-      "1 xícara de leite",
-      "1 colher (sopa) de açúcar",
-      "1 colher (chá) de fermento em pó",
-    ],
-    preparo: "Misture todos os ingredientes até obter uma massa homogênea...",
-  },
-  {
-    titulo: "Bolo de Chocolate",
-    imagem:
-      " https://cdn-productdbimages.barry-callebaut.com/sites/default/files/styles/mdp_web_gm_chocac-detail/public/externals/d73ed7c82007f2c7d6b1615a80920207.jpg?itok=p8W4PzRn",
-    categoria: "Sobremesa",
-    descricao: "Panquecas leves e fofinhas para um café delicioso.",
-    ingredientes: [
-      "1 xícara de farinha de trigo",
-      "1 ovo",
-      "1 xícara de leite",
-      "1 colher (sopa) de açúcar",
-      "1 colher (chá) de fermento em pó",
-    ],
-    preparo: "Misture todos os ingredientes até obter uma massa homogênea...",
-  },
-];
-
-const receitasSucos = [
-  {
-    titulo: "Suco de Abacaxi com Limão",
-    imagem:
-      "https://images.mrcook.app/recipe-image/0192681f-e0ba-71cd-b260-94309ea9d70b?cacheKey=U3VuLCAxMiBKYW4gMjAyNSAwMzozODoyNCBHTVQ=",
-    categoria: "Bebida",
-    descricao:
-      "Refrescante combinação tropical de abacaxi doce com toque cítrico do limão.",
-    ingredientes: [
-      "2 xícaras de abacaxi picado",
-      "1/2 xícara de suco de limão fresco (aprox. 2 limões)",
-      "2 colheres (sopa) de açúcar ou a gosto",
-      "500 ml de água gelada",
-      "Gelo a gosto",
-    ],
-    preparo:
-      "Bata o abacaxi, o suco de limão, o açúcar e a água no liquidificador. Coe se desejar. Sirva com gelo.",
-  },
-  {
-    titulo: "Suco de Maracujá com Hortelã",
-    imagem:
-      "https://i0.wp.com/anamariabraga.globo.com/wp-content/uploads/2016/05/suco-de-maracuja-manga-e-hortela-12949.jpg?w=566&ssl=1",
-    categoria: "Bebida",
-    descricao:
-      "Suco de maracujá cítrico com toque fresco de hortelã — perfeito para dias quentes.",
-    ingredientes: [
-      "4 polpas de maracujá (aprox. 4 maracujás)",
-      "600 ml de água gelada",
-      "3 colheres (sopa) de açúcar",
-      "Folhas de hortelã a gosto",
-      "Gelo",
-    ],
-    preparo:
-      "Bata a polpa do maracujá com um pouco de água. Coe, misture o restante da água, o açúcar e folhas de hortelã. Sirva gelado.",
-  },
-  {
-    titulo: "Watermelemonade",
-    imagem:
-      "https://www.simplyrecipes.com/thmb/Q8ldhJ_dcMMS5TyD3G6TIYpIbAA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/simply-recipes-watermelonade-lead-1-cd1502c65502404dbe3b1a3fd35dd275.jpg",
-    categoria: "Bebida",
-    descricao:
-      "Versão leve e doce de limonada usando melancia em vez de açúcar.",
-    ingredientes: [
-      "4 xícaras de melancia sem sementes, picada",
-      "Suco de 2 limões",
-      "Gelo a gosto",
-    ],
-    preparo:
-      "Bata a melancia até virar purê. Coe se quiser mais leve. Misture o suco de limão, aqueça e sirva com gelo.",
-  },
-];
+import receitasEmDestaque from "../data/receitasEmDestaque";
+import sucosCincoEstrelas from "../data/sucosCincoEstrelas";
 
 export default function Home() {
   const { usuario } = useAuth();
@@ -142,11 +43,12 @@ export default function Home() {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 ">
-          {receitasDestaque.map((receita, index) => {
+          {receitasEmDestaque.map((receita, index) => {
             return (
               <CardReceita
                 key={index}
-                titulo={receita.titulo}
+                id={receita.id}
+                titulo={receita.id}
                 imagem={receita.imagem}
                 categoria={receita.categoria}
               />
@@ -161,11 +63,12 @@ export default function Home() {
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {receitasSucos.map((receita, index) => {
+          {sucosCincoEstrelas.map((receita, index) => {
             return (
               <CardReceita
                 key={index}
-                titulo={receita.titulo}
+                id={receita.id}
+                titulo={receita.id}
                 imagem={receita.imagem}
                 categoria={receita.categoria}
               />
