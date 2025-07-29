@@ -118,9 +118,10 @@ export default function MinhasReceitas() {
       {mostrarFormulario && (
         <form
           onSubmit={salvarOuEditarReceita}
-          className="bg-white border rounded-lg shadow-md p-4 mb-8 space-y-4"
+          className="bg-white border-cyan-950 rounded-lg shadow-md p-4 my-8 space-y-4 w-[38rem] mx-auto flex flex-col px-8"
         >
           <input
+            className="border-cyan-950 shadow-md rounded-xl px-2"
             type="text"
             placeholder="Título"
             value={titulo}
@@ -135,7 +136,7 @@ export default function MinhasReceitas() {
             onChange={(e) => {
               setIngredientes(e.target.value);
             }}
-            className="w-full border p-2 rounded"
+            className="resize-none border-cyan-950 shadow-md p-2 rounded"
             required
           />
           <textarea
@@ -144,13 +145,13 @@ export default function MinhasReceitas() {
             onChange={(e) => {
               setPreparo(e.target.value);
             }}
-            className="w-full border p-2 rounded"
+            className="resize-none border-cyan-950 shadow-md p-2 rounded"
             required
           />
           <button
             type="submit"
             className="bg-orange-500 text-white
-          px-6 py-2 rounded hover:border-orange-600"
+          px-6 py-2 rounded-4xl hover:border-orange-600 w-fit mx-auto"
           >
             {modoEdicao ? "Atualizar Receita" : "Salvar Receita"}
           </button>
@@ -161,7 +162,7 @@ export default function MinhasReceitas() {
           {receitas.map((rec) => (
             <li
               key={rec.id}
-              className="bg-white p-4 border rounded shadow-md relative my-5"
+              className="bg-white p-4 border-b-cyan-950 rounded shadow-md relative my-5"
             >
               <h2 className="font-bold text-lg text-orange-700">
                 {rec.titulo}
