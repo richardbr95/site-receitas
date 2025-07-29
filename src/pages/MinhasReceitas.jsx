@@ -125,7 +125,7 @@ export default function MinhasReceitas() {
       {mostrarFormulario && (
         <form
           onSubmit={salvarOuEditarReceita}
-          className="bg-white border-cyan-950 rounded-lg shadow-md p-4 my-8 space-y-4 w-[38rem] mx-auto flex flex-col px-8"
+          className="bg-white border-cyan-950 rounded-lg shadow-md p-4 my-8 space-y-4 w-full max-w-[38rem] mx-auto flex flex-col px-8"
         >
           {modoEdicao && imagem && (
             <img

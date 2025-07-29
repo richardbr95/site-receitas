@@ -2,6 +2,7 @@ import CardReceita from "../components/CardReceita";
 import { useAuth } from "../hooks/useAuth";
 import receitasEmDestaque from "../data/receitasEmDestaque";
 import sucosCincoEstrelas from "../data/sucosCincoEstrelas";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { usuario } = useAuth();
@@ -130,12 +131,12 @@ export default function Home() {
                 , você pode! Acesse a aba <strong>Minhas Receitas</strong> e
                 comece agora mesmo.
               </p>
-              <a
-                href="/minhas-receitas"
+              <Link
+                to="/minhas-receitas"
                 className="inline-block bg-orange-500 text-white font-medium px-6 py-2 text-xl rounded-full hover:bg-orange-600 transition my-5"
               >
                 Minhas Receitas
-              </a>
+              </Link>
             </div>
           </div>
         </section>
