@@ -12,6 +12,8 @@ export default function MinhasReceitas() {
   const [modoEdicao, setModoEdicao] = useState(false);
   const [idEditando, setIdEditando] = useState(null);
   const [imagem, setImagem] = useState("");
+  const [categoria, setCategoria] = useState("");
+  const [descricao, setDescricao] = useState("");
 
   useEffect(() => {
     if (!usuario) {
@@ -33,7 +35,15 @@ export default function MinhasReceitas() {
     if (modoEdicao) {
       const atualizadas = receitasUsuario.map((rec) =>
         rec.id === idEditando
-          ? { ...rec, titulo, imagem, ingredientes, preparo }
+          ? {
+              ...rec,
+              titulo,
+              imagem,
+              categoria,
+              descricao,
+              ingredientes,
+              preparo,
+            }
           : rec
       );
 
@@ -45,6 +55,8 @@ export default function MinhasReceitas() {
       setIngredientes("");
       setPreparo("");
       setImagem("");
+      setCategoria("");
+      setDescricao("");
       setMostrarFormulario(false);
       setModoEdicao(false);
       setIdEditando(null);
@@ -53,6 +65,8 @@ export default function MinhasReceitas() {
         id: crypto.randomUUID(),
         titulo,
         imagem,
+        categoria,
+        descricao,
         ingredientes,
         preparo,
       };
@@ -71,6 +85,8 @@ export default function MinhasReceitas() {
       setIngredientes("");
       setPreparo("");
       setImagem("");
+      setCategoria("");
+      setDescricao("");
       setMostrarFormulario(false);
       setModoEdicao(false);
       setIdEditando(null);
@@ -97,6 +113,13 @@ export default function MinhasReceitas() {
     setModoEdicao(true);
     setIdEditando(receita.id);
     setMostrarFormulario(true);
+
+    setTimeout(() => {
+      const form = document.querySelector("form");
+      if (form) {
+        form.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
   }
 
   return (
@@ -154,6 +177,30 @@ export default function MinhasReceitas() {
             }}
           />
 
+          <select
+            className="border-cyan-950 shadow-md p-2 rounded w-full"
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+            required
+          >
+            <option value="">Selecione uma Categoria</option>
+            <option value="Sobremesa">Sobremesa</option>
+            <option value="Salgado">Salgado</option>
+            <option value="Bebida">Bebida</option>
+            <option value="Café da Manhã">Café da Manhã</option>
+            <option value="Almoço">Almoço</option>
+            <option value="Fitness">Fitness</option>
+          </select>
+          <textarea
+            placeholder="Descrição da Receita"
+            value={descricao}
+            onChange={(e) => {
+              setDescricao(e.target.value);
+            }}
+            className="resize-none border-cyan-950 shadow-md p-2 rounded"
+            required
+          />
+
           <textarea
             placeholder="Ingredientes"
             value={ingredientes}
@@ -198,6 +245,12 @@ export default function MinhasReceitas() {
               <h2 className="font-bold text-lg text-orange-700">
                 {rec.titulo}
               </h2>
+              <p className="mt-1">
+                <strong>Categoria:</strong> {rec.categoria}
+              </p>
+              <p className="mt-1">
+                <strong>Descrição:</strong> {rec.descricao}
+              </p>
               <p className="mt-1">
                 <strong>Ingredientes:</strong> {rec.ingredientes}
               </p>

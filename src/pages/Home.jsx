@@ -3,9 +3,17 @@ import { useAuth } from "../hooks/useAuth";
 import receitasEmDestaque from "../data/receitasEmDestaque";
 import sucosCincoEstrelas from "../data/sucosCincoEstrelas";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Home() {
   const { usuario } = useAuth();
+  const [quantidadeVisivel, setQuantidadeVisivel] = useState(6);
+
+  const dados = JSON.parse(localStorage.getItem("receitasPorUsuario") || "{}");
+  const minhasReceitas = dados[usuario] || [];
+  const carregarMais = () => {
+    setQuantidadeVisivel((prev) => prev + 6);
+  };
 
   return (
     <div>
@@ -57,6 +65,39 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      {usuario && minhasReceitas.length > 0 && (
+        <section className="mt-20">
+          <h1 className="text-3xl text-white font-bold my-10 text-center m-auto bg-red-600 w-fit rounded-3xl py-3 px-4 select-none">
+            Minhas Receitas
+          </h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {minhasReceitas
+              .slice(0, quantidadeVisivel)
+              .map((receita, index) => {
+                return (
+                  <CardReceita
+                    key={index}
+                    id={receita.id}
+                    titulo={receita.id}
+                    imagem={receita.imagem}
+                    categoria={receita.categoria}
+                  />
+                );
+              })}
+          </div>
+          <div className="flex justify-center ">
+            {quantidadeVisivel < minhasReceitas.length && (
+              <button
+                onClick={carregarMais}
+                className="mt-6 bg-orange-500 text-white px-6 py-2 rounded-3xl hover:bg-orange-600 mx-auto"
+              >
+                Carregar Mais
+              </button>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="mt-20">
         <h1 className="text-3xl  text-white font-bold my-10 text-center m-auto bg-amber-950 w-fit rounded-3xl py-3 px-4 select-none">
