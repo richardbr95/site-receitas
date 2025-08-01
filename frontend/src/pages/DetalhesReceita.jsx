@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-// import boloImg from "../assets/bolo-de-chocolate-facil.jpg";
 import { useNavigate } from "react-router-dom";
 import receitasEstaticas from "../data/receitasEstaticas";
 import { useEffect, useState } from "react";

@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "titulo": "Feijoadaas",
+    "imagem": "https://exemplo.com/feijoada.jpg",
+    "categoria": "Almoço"
+  },
+  {
+    "id": 2,
+    "titulo": "Feijoada",
+    "imagem": "https://exemplo.com/feijoada.jpg",
+    "categoria": "Almoço"
+  },
+  {
+    "id": 3,
+    "titulo": "Feijoada",
+    "imagem": "https://exemplo.com/feijoada.jpg",
+    "categoria": "Almoço"
+  },
+  {
+    "id": 4,
+    "titulo": "Feijoada",
+    "imagem": "https://exemplo.com/feijoada.jpg",
+    "categoria": "Almoço1",
+    "preparo": "Mecher",
+    "ingredientes": "Feijao, Agua e Sal"
+  },
+  {
+    "id": 5,
+    "titulo": "Feijoada",
+    "imagem": "https://exemplo.com/feijoada.jpg",
+    "categoria": "Almoço",
+    "preparo": "Mecher",
+    "ingredientes": "Feijao, Agua e Sal"
+  }
+]
