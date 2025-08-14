@@ -8,7 +8,11 @@ const recipeSchema = new mongoose.Schema(
     ingredientes: { type: [String], required: true },
     modoPreparo: { type: String, required: true },
     imagem: { type: String },
-    usuarioId: { type: String, required: true },
+    usuario: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
   {
     timestamps: true,

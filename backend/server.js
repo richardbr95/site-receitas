@@ -1,8 +1,9 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import receitasRoutes from "./routes/receitaRoutes.js";
-import cors from "cors";
+import userRoutes from "./routes/userRoutes.js";
 import { logger } from "./middlewares/logger.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 
@@ -18,6 +19,7 @@ connectDB();
 
 app.use(logger);
 app.use("/api", receitasRoutes);
+app.use("/api/users", userRoutes);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
