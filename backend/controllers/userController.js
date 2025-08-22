@@ -59,3 +59,10 @@ export const loginUsuario = async (req, res) => {
     res.status(500).json({ erro: "Erro ao fazer login" });
   }
 };
+
+export const usuarioAutorizado = (req, res) => {
+  res.status(200).json({
+    mensagem: "Acesso autorizado",
+    usuario: req.usuario,
+  });
+};
